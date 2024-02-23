@@ -1,8 +1,8 @@
-package Task1;
+package taskone;
 
 import java.util.Scanner;
 
-public class Question4 {
+public class QuestionFour {
 
 	public static void main(String[] args) {
 		// To find the smallest of three numbers
@@ -19,7 +19,7 @@ public class Question4 {
 				int thirdValue = obj.nextInt();
 				obj.close(); //closing scanner class as we got the required input from user
 				
-				//checking for is smallest number 
+				//checking input for which is the smallest number 
 				
 				if (firstValue < secondValue && firstValue < thirdValue)//comparing first value with 2 and 3
 				{
@@ -29,9 +29,13 @@ public class Question4 {
 				{
 					System.out.println("The secondValue is Smaller " + secondValue);
 				}
-				else //print 3 value 
+				else if(firstValue ==secondValue && secondValue == thirdValue)// if all three values are same 
 				{
-					System.out.println("The ThirdValue is smaller " +thirdValue);
+					System.out.println("All Entered Values are Same  " + firstValue);				
+				}
+				else //printing 3rd value 
+				{
+					System.out.println("The ThirdValue is smaller " + thirdValue);
 				}
 	}
 

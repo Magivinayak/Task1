@@ -1,8 +1,8 @@
-package Task1;
+package taskone;
 
 import java.util.Scanner;
 
-public class Question6 {
+public class QuestionSix {
 
 	public static void main(String[] args) {
 		// To print given pattern
@@ -11,7 +11,7 @@ public class Question6 {
 		//Getting total value from user 
 		Scanner obj = new Scanner(System.in);
 		System.out.println("Enter the rows and column ");
-		int noofRowsandColumns = obj.nextInt();
+		int noofRowsandColumns = obj.nextInt();//input
 		obj.close(); //closing scanner class as we got the required input from user
 		
 		//declaring the output variable
@@ -24,10 +24,10 @@ public class Question6 {
 			{
 				finalValue = row > column ? row : column; // checking the value needs to be printed
 				
-				System.out.print("  " + finalValue);	
+				System.out.print("  " + finalValue);	//output
 			}
 			
-			System.out.println();
+			System.out.println();//to next line after inner loop exit
 			
 		}
 }

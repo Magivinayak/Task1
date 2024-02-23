@@ -1,8 +1,8 @@
-package Task1;
+package taskone;
 
 import java.util.Scanner;
 
-public class Question1 {
+public class QuestionOne {
 
 	public static void main(String[] args) {
 		// TO print numbers from 10 to 50
@@ -20,9 +20,8 @@ public class Question1 {
 		
 		while(start <= end)
 		{
-			System.out.println(start);//printing the values
+			System.out.println(start);//printing the output values
 			start++; // increment
 		}
-	}
-
+		}
 }
