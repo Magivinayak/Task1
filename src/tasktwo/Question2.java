@@ -1,14 +1,14 @@
 package tasktwo;
 import java.util.Scanner;
 
-//Parent class
+//Product class
 class Product{
 	
 	//instance variable
 	int pid ,quantity;
 	double price ;
 	
-	//Parent class constructor
+	//Product class constructor
 	Product(int pid , double price ,int quantity ){
 		this.pid=pid;
 		this.price=price;
@@ -27,59 +27,70 @@ class Product{
 		}
 }
 
-//child class
-class Calculation extends Product{
+//XYZ class as defined in task
+class XYZ {
 	
-	Calculation(int pid, double price, int quantity) {
-		super(pid, price, quantity);
-	}
-	void Display() 
-	{
-		System.out.println("ProductId : "+pid +" ProductPrice : " +price+" ProductQuantity :  "+quantity);
-		double totalAmount = price*quantity;
-		System.out.println("Total amount  " + totalAmount);//total amount calculation for each Product
-	}
+	Product ProductList[]  = new Product[5];
 	
-	//higher price calculation of all product
-	Product highPrice(Product[] productList) 
-	{
-		Product higher = productList[0];		
-		for(int i=1;i<productList.length;i++)
-		{
-			if(productList[i].getPrice()>higher.getPrice())
+	//array of products
+	void userInput() {
+			
+			Scanner input = new Scanner(System.in);
+			for(int i=0;i<ProductList.length;i++)
 			{
-				higher=productList[i];
+				System.out.println("Enter your PID, Price , Quantity  for product " + (i+1));
+				int productId=input.nextInt();//input from user for each product
+				
+				double productPrice=input.nextDouble();
+				
+				int productQuantity=input.nextInt();
+				System.out.println();
+			    ProductList[i]=new Product(productId,productPrice,productQuantity);    
+			   	  
+			}
+			input.close();
+	}
+	
+	double totalValue() 
+	{
+		double totalAmount = 0;
+		for (Product prd:ProductList) 
+		{
+			totalAmount+=prd.price*prd.quantity;
+		}
+		return totalAmount;
+	}
+	
+	int higherPid()
+	{
+		double higherPrice = 1;
+		int higherPid = 0;
+		
+		for (Product prd:ProductList)
+		{
+			if(prd.getPrice()>higherPrice)
+			{
+				higherPrice=prd.getPrice();
+				higherPid = prd.getPid();
 			}
 		}
-		return higher;
+		return higherPid;
 	}
 }
 	
 public class Question2 {
-
-	public static void main(String[] args) {
-		
-		//array of products
-		Product ProductList[]  = new Product[2];
-		for(int i=0;i<ProductList.length;i++)
-		{
-			System.out.println("Enter your PID, Price , Quantity  for product " + i);
-			Scanner input = new Scanner(System.in);
-			int productId=input.nextInt();//input from user for each product
-			double productPrice=input.nextDouble();
-			int productQuantity=input.nextInt();
-		    ProductList[i]=new Product(productId,productPrice,productQuantity);    
-		   	  
-		}
-		
-		for (Product prd:ProductList) //child class to perform actions
-		{
-			Calculation calc=new Calculation(prd. getPid(),prd.getPrice(),prd.getQuantity());			
-			calc.Display();//output
-			Product sample=calc.highPrice(ProductList);
-			System.out.println("Higher Product ID "+sample.getPid());//get higher product id
-		}
-	}
-
 	
+	
+        public static void main(String[] args) {
+		
+        XYZ objectXyz = new XYZ();
+	    objectXyz.userInput();//for product details
+		double totalAmount = objectXyz.totalValue();//Total amount of all products
+		int highValue = objectXyz.higherPid(); //highest product id
+		
+		System.out.println("Higher Price  Product ID : "+highValue);
+		System.out.println("Total Amount Spend on All Products : "+totalAmount);
+
+	}
 }
+
