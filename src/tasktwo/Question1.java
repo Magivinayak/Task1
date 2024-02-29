@@ -22,6 +22,7 @@ public class Question1 {
 
 	public static void main(String[] args) {
 		
+		int defAge=18;//default age is 18
 		//input
 		Scanner input = new Scanner(System.in);
 		System.out.println("Enter your Name ");
@@ -29,8 +30,8 @@ public class Question1 {
 		input.close();
 		
 		//object
-		Person obj = new Person(name ,18);
-		obj.display();// default age 18 and method call using object
+		Person obj = new Person(name ,defAge);//constructor with arguments
+		obj.display();// output
 
 	}
 

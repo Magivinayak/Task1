@@ -8,15 +8,16 @@ class Account{
 	
 	//no argument constructor
 	Account(){
-		System.out.println("No-Argumented Constructor");
+		System.out.println("**No-Argumented Constructor**");
 	}
 	
 	//two Arguments Constructor
-	Account(String name,int accountNumber ,double depositAmount,double withdrawnAmount ){	
+	Account(String name,long accountNumber ,double depositAmount,double withdrawnAmount ){	
 		this.depositAmount = depositAmount;
 		this .withdrawAmount = withdrawnAmount;
-		System.out.println("Two Argumented Constructor \n" );
-		System.out.println("NAME : "+name+"  Acc Number : "+accountNumber+"  Deposited Amount  " +depositAmount+"  Withdrawn Amount " +withdrawAmount);
+		System.out.println();
+		System.out.println("**Two Argumented Constructor **\n" );
+		System.out.println("NAME : "+name+"  Account Number : "+accountNumber+"  Deposited Amount : " +depositAmount+"  Withdrawn Amount : " +withdrawAmount);
 		
 	}		
 	//instance method for deposit amount
@@ -44,14 +45,15 @@ public class Question3 {
 		double userBalance;
 		//object creation
 		Account obj = new Account();// no arguments constructor
-		userBalance=obj.display();
-		//System.out.println("Balance Amount is : " + userBalance);		
+		userBalance=obj.display();		
 		System.out.println();
 		//Scanner class declaration for input 
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter your Name , Account numeber and Amount to be Deposited");
+		System.out.println("Type your Name ");
 		String name = input.nextLine();
-		int accountNumber = input.nextInt();		
+		System.out.println("Type your Account number ");
+		long accountNumber = input.nextLong();	
+		System.out.println("Enter Amount to be Deposited ");
 		double userAmount = input.nextDouble();//input 
 		System.out.println("Enter the Amount to be withdrawn");
     	double userWithdraw = input.nextDouble();//input	

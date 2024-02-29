@@ -13,6 +13,7 @@ class Persons{
 	Persons(String name , int age){
 		this.name=name;
 		this.age=age;
+		System.out.println("*** Base class ***");
 	}
 }
 
@@ -26,7 +27,7 @@ class Employee extends Persons{
 		super(name,age);//Parent class constructor call using super 
 		this.employeeId = employeeId;
 		this.salary = salary;
-		
+		System.out.println("*** Child class ***");
 	}
 	void display() {
 		
@@ -41,13 +42,16 @@ public class Question4 {
 		
 		//input
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter your Name ,Age ,Emp ID and Salary ");
+		System.out.print("Enter your Name ");
 		String name=input.nextLine();//input 
-		int age = input.nextInt();;
+		System.out.print("Enter your Age ");
+		int age = input.nextInt();
+		System.out.print("Enter your Emp Id ");
 		int employeeId = input.nextInt();
+		System.out.print("Enter your Salary ");
 		int salary = input.nextInt();
 		input.close();
-		
+		System.out.println();
 		//object for child class
 		Employee obj = new Employee(name,age,employeeId ,salary);
 		obj.display();//output

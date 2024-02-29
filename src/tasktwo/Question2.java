@@ -1,6 +1,7 @@
 package tasktwo;
 import java.util.Scanner;
 
+
 //Product class
 class Product{
 	
@@ -76,6 +77,16 @@ class XYZ {
 		}
 		return higherPid;
 	}
+	
+	void Display() 
+	{
+		double totalPrice = 0;
+		for (Product prd:ProductList) 
+		{
+			totalPrice=prd.price*prd.quantity;
+			System.out.println("ProductId : "+prd.pid +" ProductPrice : " +prd.price+" ProductQuantity :  "+prd.quantity +" Total amount :  "+totalPrice);
+		}
+		}
 }
 	
 public class Question2 {
@@ -84,11 +95,12 @@ public class Question2 {
         public static void main(String[] args) {
 		
         XYZ objectXyz = new XYZ();
-	    objectXyz.userInput();//for product details
+	    objectXyz.userInput();//for product input
+	    objectXyz.Display();// for details
 		double totalAmount = objectXyz.totalValue();//Total amount of all products
-		int highValue = objectXyz.higherPid(); //highest product id
-		
-		System.out.println("Higher Price  Product ID : "+highValue);
+		int highValue = objectXyz.higherPid(); //higher product 
+		System.out.println();
+		System.out.println("Higher Priced  Product ID : "+highValue);
 		System.out.println("Total Amount Spend on All Products : "+totalAmount);
 
 	}
