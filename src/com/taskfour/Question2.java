@@ -17,46 +17,44 @@ class Voter{
 	private String name;
 	private int age;
 	
-	public Voter(int voterID, String name, int age) {
+	public Voter(int voterID, String name, int age)throws UserDefinedException {
 		super();
 		this.voterID = voterID;
 		this.name = name;
-		this.age = age;
+		if (age>=18) {		
+			this.age = age;
+		}
+		else {
+			throw new UserDefinedException("Invalid age for Voter -"+" Voter not eligible -->" + " Name: " +name +" ID: " + voterID +" Age: "+age);
+		}
 	}
 	
-	public void voting()throws UserDefinedException{
-
-			if (age>=18) {				
-				System.out.println("Voter eligible : " + "Name -" +name +" ID" + voterID);
-			}
-			else {
-				throw new UserDefinedException("Invalid age for Voter");
-			}
-		}
+	public void display() {
+		
+		System.out.println ("Voter eligible : " + "Name -" +name +" ID" + voterID +"Age : "+age);
+		 
+	}
 }
 
-public class Question2 {
 
+public class Question2 {
+	
 	public static void main(String[] args) {
 
+		
 			Scanner userInput = new Scanner(System.in);
 			System.out.println("Enter voter ID , Name and Age");
 			int voterId=userInput.nextInt();
 			String name = userInput.next();
 			int age = userInput.nextInt();
-			
-			//object
-			Voter vote = new Voter(voterId , name ,age );
-			
 			try {
-				
-				vote.voting();
-				
+			//object	
+			Voter vote = new Voter(voterId , name ,age );
+			vote.display();
+			
 			} catch (UserDefinedException e) {
-				
 				System.out.println(e.getMessage());
 			}
-			
 			userInput.close();
 	}
 }
@@ -64,12 +62,10 @@ public class Question2 {
 /*
  ----------------------------output--------------------------------------
  
- Enter voter ID , Name and Age
-12354
+Enter voter ID , Name and Age
+657912348
 Magesh
 17
-Invalid age for Voter
-
+Invalid age for Voter - Voter not eligible --> Name: Magesh ID: 657912348 Age: 17
 
 */
-
